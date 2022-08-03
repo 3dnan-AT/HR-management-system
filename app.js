@@ -1,9 +1,8 @@
-var unique = 0;
+var unique = 1000;
 
-function NumberGenerator(){
+function IDGenerator(){
     return ++unique;
 }
-
 
 function salaryPicker(level){
     var temp = level;
@@ -25,90 +24,36 @@ function netSalary(salaryy){
     return salaryy- (salaryy *0.075);
 }
 
-const employee = { 
-    ID :NumberGenerator(),
-    name : "Ghazi Samer",
-    Department :"Administration",
-    level :"Senior",
-    myImage : 'http://qnimate.com/understanding-html-img-tag/',
-    salary :salaryPicker(this.level)  
+function employee(employeeName, department, level) {
+    this.id = IDGenerator();
+    this.employeeName = employeeName;
+    this.department = department;
+    this.employeeSalary = salaryPicker(level);
+    this.level = level;
     
 }
 
-const employee2 = {
-    ID :NumberGenerator(),
-    name : "Lana Ali",
-    Department :"Finance",
-    level :"Senior",
-    myImage : 'http://qnimate.com/understanding-html-img-tag/',
-    salary : salaryPicker(this.level),
+const employee1 = new employee("Ghazi Samer", "Administration", "Senior")
+const employee2 = new employee("Lana Ali", "Finance", "Senior")
+const employee3 = new employee("Tamara Ayoub", "Marketing", "Mid-Senior")
+const employee4 = new employee("Safi Walid", "Administration", "Senior")
+const employee5 = new employee("Omar Zaid", "Development", "Junior")
+const employee6 = new employee("Rana Saleh", "Development", "Mid-Senior")
+
     
-}
-const employee3 = {
-    ID :NumberGenerator(),
-    name : "Tamara Ayoub",
-    Department :"Marketing",
-    level :"Senior",
-    myImage : 'http://qnimate.com/understanding-html-img-tag/',
-    salary : salaryPicker(this.level),
-    
-}
-const employee4 = {
-    ID :NumberGenerator(),
-    name : "Safi Walid",
-    Department :"Administration",
-    level :"Mid-Senior",
-    myImage : 'http://qnimate.com/understanding-html-img-tag/',
-    salary : salaryPicker(this.level),
-    
-}
-const employee5 = {
-    ID :NumberGenerator(),
-    name : "Omar Zaid",
-    Department :"Development",
-    level :"Senior",
-    myImage : 'http://qnimate.com/understanding-html-img-tag/',
-    salary : salaryPicker(this.level),
-    
-}
-const employee6 = {
-    ID :NumberGenerator(),
-    name : "Rana Saleh",
-    Department :"Development",
-    level :"Junior",
-    myImage : 'http://qnimate.com/understanding-html-img-tag/',
-    salary : salaryPicker(this.level),
-    
-}
-const employee7 = {
-    ID :NumberGenerator(),
-    name : "Hadi Ahmad",
-    Department :"Finance",
-    level :"Mid-Senior",
-    myImage : 'http://qnimate.com/understanding-html-img-tag/',
-    salary : salaryPicker(this.level),   
-    
+
+employee.prototype.info = function () {
+    document.write(`<div class = "emplo-info"><p>Employee name: ${this.employeeName} <br> Department:  ${this.department} <br> Employee salary: ${this.employeeSalary}</p></div>`);
 }
 
-employee.salary = salaryPicker(employee.level);
-employee.salary = parseInt(netSalary(employee.salary), 10)
-employee2.salary = salaryPicker(employee2.level)
-employee2.salary = parseInt(netSalary(employee2.salary), 10)
-employee3.salary = salaryPicker(employee3.level)
-employee3.salary = parseInt(netSalary(employee3.salary), 10)
-employee4.salary = salaryPicker(employee4.level)
-employee4.salary = parseInt(netSalary(employee4.salary), 10)
-employee5.salary = salaryPicker(employee5.level)
-employee5.salary = parseInt(netSalary(employee5.salary), 10)
-employee6.salary = salaryPicker(employee6.level)
-employee6.salary = parseInt(netSalary(employee6.salary), 10)
-employee7.salary = salaryPicker(employee7.level)
-employee7.salary = parseInt(netSalary(employee7.salary), 10)
+employee1.info()
+employee2.info()
+employee3.info()
+employee4.info()
+employee5.info()
+employee6.info()
 
-console.log("Employee name: " + employee.name ,"\nEmployee Salary: " + employee.salary)
-console.log("Employee name: " + employee2.name,"\nEmployee Salary: " + employee2.salary)
-console.log("Employee name: " + employee3.name,"\nEmployee Salary: " + employee3.salary)
-console.log("Employee name: " + employee4.name,"\nEmployee Salary: " + employee4.salary)
-console.log("Employee name: " + employee5.name,"\nEmployee Salary: " + employee5.salary)
-console.log("Employee name: " + employee6.name,"\nEmployee Salary: " + employee6.salary)
-console.log("Employee name: " + employee7.name,"\nEmployee Salary: " + employee7.salary)
+
+
+
+
